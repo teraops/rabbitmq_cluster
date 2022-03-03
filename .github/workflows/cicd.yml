@@ -7,9 +7,10 @@ jobs:
     name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1
       - name: List file
         run: pwd && ls -l
       - name: Build Images
-        run: bash rabbitmq_cluster/build_images.sh
+        run: . ./build_images.sh
       - name: Run Cluster
-        run: bash rabbitmq_cluster/build_script
+        run: . ./build_script
