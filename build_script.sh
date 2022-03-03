@@ -1,7 +1,7 @@
 #!/bin/sh
 
-docker network remove pl-network
-docker rm /service-bus /receiver /sender
+# docker network remove pl-network
+# docker rm /service-bus /receiver /sender
 
 docker network create pl-network
 docker run -d --name service-bus rmq:latest --net pl-network 
