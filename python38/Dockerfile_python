@@ -1,0 +1,17 @@
+FROM centos:7
+RUN yum install gcc openssl-devel bzip2-devel libffi-devel zlib-devel -y
+RUN curl https://www.python.org/ftp/python/3.8.10/Python-3.8.10.tgz --output /tmp/Python-3.8.10.tgz
+WORKDIR /tmp
+RUN tar xzf Python-3.8.10.tgz
+WORKDIR /tmp/Python-3.8.10
+RUN ./configure --enable-optimizations
+RUN yum install make -y
+RUN make altinstall
+RUN yum install which -y
+WORKDIR /tmp
+RUN rm -r Python-3.8.10.tgz
+RUN yum -y install epel-release
+RUN curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
+RUN python3.8 get-pip.py
+RUN python3.8 -m pip install --upgrade pip
+RUN pip install pika
