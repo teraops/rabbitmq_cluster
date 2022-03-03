@@ -7,6 +7,8 @@ jobs:
     name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
+      - name: List file
+        run: pwd && ls -l
       - name: Build Images
         run: bash build_images.sh
       - name: Run Cluster
