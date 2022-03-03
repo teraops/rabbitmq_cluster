@@ -8,6 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build Images
-        run: . ./build_images.sh
+        run: bash build_images.sh
       - name: Run Cluster
-        run: . ./build_script
+        run: bash build_script
