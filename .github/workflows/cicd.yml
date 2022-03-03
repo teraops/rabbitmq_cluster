@@ -13,4 +13,6 @@ jobs:
       - name: Build Images
         run: . ./build_images.sh
       - name: Run Cluster
-        run: . ./build_script
+        run: . ./build_script.sh
+      - name: Verify
+        run: docker logs sender && docker logs receiver
