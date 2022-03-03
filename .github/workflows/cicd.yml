@@ -10,6 +10,6 @@ jobs:
       - name: List file
         run: pwd && ls -l
       - name: Build Images
-        run: bash build_images.sh
+        run: bash rabbitmq_cluster/build_images.sh
       - name: Run Cluster
-        run: bash build_script
+        run: bash rabbitmq_cluster/build_script
